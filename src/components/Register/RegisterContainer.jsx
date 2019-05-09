@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Register from './Register.jsx';
-import axios from 'axios';
+import api from '../../api.js';
 
 class RegisterContainer extends Component {
   register = user => {
-    const userDetails = user;
-
-    axios.post('http://localhost:7777/api/register', userDetails)
-    .then(res => console.log(res));
+    api.register(user)
+      .then(res => console.log(res))
+      .catch(error => console.log(error));
   }
 
   render() {
